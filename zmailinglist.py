@@ -1,18 +1,17 @@
 # This python script will open a file named "mailinglist.txt" that has a z-address on every line, and ask the user
 # to input a memo. It will then assemble a z_sendmany transaction with a 1 zatoshi output and the memo for each recipient listed in
-# mailinglist.txt . Finally, while zcashd is running, run sendletter.bat in the same folder as zcash-cli to send.
+# mailinglist.txt . Finally, while zecwallet light cli is running, run sendletter.sh in the same folder as zecwallet-cli to send.
 
  
 file = open("mailinglist.txt")
 memotext=input("Input Memo (IN QUOTES): ")
-hextext=memotext.encode("hex")
 outstring=""
 output = open("sendletter.sh","w")
-outstring += './zcash-cli z_sendmany "zsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" '
+outstring += './zecwallet-cli send '
 outstring += '"['
  
 for a in file:
-    outstring += '{\\"address\\": \\"'+a.replace(',','')+'\\",\\"amount\\": 0.00000001, \\"memo\\":\\"'+hextext+'\\"},'
+    outstring += '{\\"address\\": \\"'+a.replace(',','')+'\\",\\"amount\\": 1, \\"memo\\":\\"'+memotext+'\\"},'
    
  
 outstring=outstring[:-1]
