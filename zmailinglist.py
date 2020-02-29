@@ -7,8 +7,8 @@ file = open("mailinglist.txt")
 memotext=input("Input Memo (IN QUOTES): ")
 hextext=memotext.encode("hex")
 outstring=""
-output = open("sendletter.bat","w")
-outstring += 'zcash-cli z_sendmany "zsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" '
+output = open("sendletter.sh","w")
+outstring += './zcash-cli z_sendmany "zsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" '
 outstring += '"['
  
 for a in file:
