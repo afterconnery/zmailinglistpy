@@ -1,11 +1,6 @@
 # Python Zcash Memo Mailer
+## To be used with Zecwallet Lite CLI on **LINUX**
 
+This python script will open a file in the same directory named "mailinglist.txt" that has a z-address on every line (example provided), and ask the user to input a memo. It will then assemble a z_sendmany transaction with a 1 zatoshi output and the memo for each recipient listed in mailinglist.txt . You will then need to change the mode of the sendletter.sh script so you can execute it. `sudo chmod u+x sendletter.sh`. Then to send out your memos `sudo ./sendletter.sh`.
 
-IMPORTANT: You MUST update the "from" address in the python code to be the z-address you wish to send from. It is a placeholder by default, "zsxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
-This python script will open a file in the same directory named "mailinglist.txt" that has a z-address on every line (example provided), and ask the user to input a memo. It will then assemble a z_sendmany transaction with a 1 zatoshi output and the memo for each recipient listed in mailinglist.txt . Finally, while zcashd is running, run sendletter.bat in the same folder as zcash-cli to send.
-
-
-## Known Problems / Limitations
-
-This is currently limited (to ~7 transactions) in Windows 10 by the maximum string length (~8000 chars) allowable by Powershell. I have not yet tested its behavior on Linux. I have it on decent authority that this can be resolved with a relatively simple Perl script to talk to the zcashd rpc client. I am currently researching how to do this :)
+Make sure to put these files in your zecwallet-cli folder. This way when you run the sendletter.sh script it will invoke the zecwallet lite client to send out the memos. If you want to send out different letters you will have to delete the sendletter.sh file so a new one can be created.
